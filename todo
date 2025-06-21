@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="page.css">
+    <title>TODO LIST</title>
+    <link rel="icon" href="R.png">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Todo Input</h1>
+        <div class="todo-input">
+            <span class="input-container">
+                <i class="fa-solid fa-book"></i>
+                <input type="text" id="todo-input" placeholder="New Todo">
+            </span>            
+            <div id="error-message" class="error-message"></div>
+            <button onclick="addtask()">Add Task</button>
+        </div>
+        
+        <h1>Todo List</h1>
+        <div class="filters">
+            
+            <button onclick="filterTodos('all')">All</button>
+            <button onclick="filterTodos('done')">Done</button>
+            <button onclick="filterTodos('todo')">Todo</button>
+        </div>
+         <div class="tasks-area">
+            <ul class="todo-list" id="todo-list"></ul>
+         </div>
+
+
+        <div class="footer-buttons">
+            <button onclick="openDeleteDonePopup()">Delete done tasks</button>
+            <button onclick="openDeleteAllPopup()">Delete all tasks</button>
+        </div>
+        <div id="delete-error-message" class="error-message"></div>
+    </div>
+    
+    <!-- Edit Popup Modal -->
+    <div class="popup" id="edit-popup">
+        <div class="popup-content">
+            <h2>Edit Task</h2>
+            <input type="text" id="edit-input">
+            <div id="edit-error-message" class="error-message"></div>
+            <button class="save-btn" onclick="saveEdit()">Save</button>
+            <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Delete Task Popup -->
+    <div class="popup" id="delete-task-popup">
+        <div class="popup-content">
+            <h2>Are you sure?</h2>
+            <p>This will delete the selected task.</p>
+            <button class="confirm-btn" id="confirm-delete-btn">Yes, Delete</button>
+            <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Delete Done Tasks Popup -->
+    <div class="popup" id="delete-done-popup">
+        <div class="popup-content">
+            <h2>Are you sure?</h2>
+            <p>This will delete all completed tasks.</p>
+            <button class="confirm-btn" onclick="confirmDeleteDone()">Yes, Delete Done</button>
+            <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Delete All Tasks Popup -->
+    <div class="popup" id="delete-all-popup">
+        <div class="popup-content">
+            <h2>Are you sure?</h2>
+            <p>This will delete all tasks.</p>
+            <button class="confirm-btn" onclick="confirmDeleteAll()">Yes, Delete All</button>
+            <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+        </div>
+    </div>
