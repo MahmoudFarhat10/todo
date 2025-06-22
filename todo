@@ -84,3 +84,61 @@
             <button class="cancel-btn" onclick="closePopup()">Cancel</button>
         </div>
     </div>
+<script>
+   let todos = [];
+   let editingIndex = null;
+   let deletingIndex = null;
+   const errorMessage2 = document.getElementById('delete-error-message');
+/*=======save and load the page =======*/
+        function saveTodos() {
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
+
+        function loadTodos() {
+            const storedTodos = localStorage.getItem('todos');
+            if (storedTodos) {
+                todos = JSON.parse(storedTodos);
+                renderTodos();
+            }
+        }
+
+        window.onload = loadTodos;
+/*===================================*/
+    function addtask() {
+    const input = document.getElementById('todo-input');
+    const errorMessage = document.getElementById('error-message');
+    const task = input.value.trim();
+
+    errorMessage.textContent = '';
+    errorMessage2.textContent = '';
+
+    if (task === '') {
+    errorMessage.textContent = 'Task cannot be empty.';
+    return;
+    }
+    if (!isNaN(task.charAt(0))) {
+    errorMessage.textContent = 'Task cannot start with a number.';
+    return;
+    }
+    if (task.length < 5) {
+    errorMessage.textContent = 'Task must be at least 5 characters long.';
+    return;
+    }
+
+    todos.push({ text: task, completed: false });
+    input.value = '';
+    saveTodos(); 
+    renderTodos();
+
+
+    }
+    function renderTodos(filter = 'all') {
+        const list = document.getElementById('todo-list');
+        list.innerHTML = '';
+        let filteredTodos = todos;
+
+        if (filter === 'done') {
+            filteredTodos = todos.filter(todo => todo.completed);
+        } else if (filter === 'todo') {
+            filteredTodos = todos.filter(todo => !todo.completed);
+        }
