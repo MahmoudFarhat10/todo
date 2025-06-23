@@ -166,3 +166,15 @@ const actionsDiv = document.createElement('div');
             deleteButton.innerHTML = "<i class='bx bxs-trash-alt'></i>"; // Delete icon
             deleteButton.classList.add('delete-button'); // Add custom class for styling
             deleteButton.onclick = () => openDeleteTaskPopup(index);
+
+ actionsDiv.appendChild(completeCheckbox);
+            actionsDiv.appendChild(editButton);
+            actionsDiv.appendChild(deleteButton);
+
+            listItem.appendChild(taskSpan);
+            listItem.appendChild(actionsDiv);
+
+            list.appendChild(listItem);
+            
+        });
+    }
