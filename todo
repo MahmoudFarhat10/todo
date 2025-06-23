@@ -156,3 +156,13 @@ const actionsDiv = document.createElement('div');
             completeCheckbox.checked = todo.completed; // Set checked state based on completion
             completeCheckbox.onclick = () => toggleComplete(index);
 
+
+            const editButton = document.createElement('button');
+            editButton.innerHTML = "<i class='bx bxs-pencil'></i>"; // Edit icon
+            editButton.classList.add('edit-button'); // Add custom class for styling
+            editButton.onclick = () => openEditPopup(index);
+
+            const deleteButton = document.createElement('button');
+            deleteButton.innerHTML = "<i class='bx bxs-trash-alt'></i>"; // Delete icon
+            deleteButton.classList.add('delete-button'); // Add custom class for styling
+            deleteButton.onclick = () => openDeleteTaskPopup(index);
