@@ -148,3 +148,5 @@
 
             const taskSpan = document.createElement('span');
             taskSpan.textContent = todo.text;
+const actionsDiv = document.createElement('div');
+            actionsDiv.className = 'todo-actions';
