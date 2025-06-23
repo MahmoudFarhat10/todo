@@ -178,3 +178,10 @@ const actionsDiv = document.createElement('div');
             
         });
     }
+ function toggleComplete(index) {
+        todos[index].completed = !todos[index].completed;
+        errorMessage2.textContent = '';
+        saveTodos(); 
+        renderTodos();
+        
+    }
