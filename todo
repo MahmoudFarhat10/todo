@@ -150,3 +150,9 @@
             taskSpan.textContent = todo.text;
 const actionsDiv = document.createElement('div');
             actionsDiv.className = 'todo-actions';
+
+  const completeCheckbox = document.createElement('input'); // Added checkbox for completion
+            completeCheckbox.type = 'checkbox'; // Checkbox type
+            completeCheckbox.checked = todo.completed; // Set checked state based on completion
+            completeCheckbox.onclick = () => toggleComplete(index);
+
