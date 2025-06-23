@@ -142,3 +142,9 @@
         } else if (filter === 'todo') {
             filteredTodos = todos.filter(todo => !todo.completed);
         }
+  filteredTodos.forEach((todo, index) => {
+            const listItem = document.createElement('li');
+            listItem.className =` todo-item ${todo.completed ? 'completed' : ''}`;
+
+            const taskSpan = document.createElement('span');
+            taskSpan.textContent = todo.text;
