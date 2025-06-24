@@ -247,3 +247,9 @@ function openDeleteTaskPopup(index) {
         }
         document.getElementById('delete-all-popup').style.display = 'flex';
     }
+   function confirmDeleteAll() {
+        todos = [];
+        saveTodos();
+        renderTodos();
+        closePopup();
+    }
