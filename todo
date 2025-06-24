@@ -231,3 +231,19 @@ function openDeleteTaskPopup(index) {
         }
         document.getElementById('delete-done-popup').style.display = 'flex';
     }
+  function confirmDeleteDone() {
+        todos = todos.filter(todo => !todo.completed);
+        saveTodos();
+        renderTodos();
+        closePopup();
+    }
+
+    function openDeleteAllPopup() {
+        
+        errorMessage2.textContent = '';
+        if (todos.length === 0) {
+            errorMessage2.textContent = 'No tasks to delete.';
+            return;
+        }
+        document.getElementById('delete-all-popup').style.display = 'flex';
+    }
