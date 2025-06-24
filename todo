@@ -190,3 +190,7 @@ function openEditPopup(index) {
         document.getElementById('edit-input').value = todos[index].text;
         document.getElementById('edit-popup').style.display = 'flex';
     }
+ function saveEdit() {
+    const editInput = document.getElementById('edit-input');
+    const errorMessage = document.getElementById('edit-error-message');
+    const task = editInput.value.trim();
