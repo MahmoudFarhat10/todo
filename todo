@@ -185,3 +185,8 @@ const actionsDiv = document.createElement('div');
         renderTodos();
         
     }
+function openEditPopup(index) {
+        editingIndex = index;
+        document.getElementById('edit-input').value = todos[index].text;
+        document.getElementById('edit-popup').style.display = 'flex';
+    }
