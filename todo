@@ -253,3 +253,8 @@ function openDeleteTaskPopup(index) {
         renderTodos();
         closePopup();
     }
+function closePopup() {
+        document.querySelectorAll('.popup').forEach(popup => {
+            popup.style.display = 'none';
+        });
+    }
