@@ -212,3 +212,13 @@ todos[editingIndex].text = task;
     closePopup();
     renderTodos();
     }
+function openDeleteTaskPopup(index) {
+        deletingIndex = index;
+        document.getElementById('delete-task-popup').style.display = 'flex';
+    }
+    function deleteTask() {
+        todos.splice(deletingIndex, 1);
+        saveTodos();
+        closePopup();
+        renderTodos();
+    }
