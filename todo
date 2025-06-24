@@ -207,3 +207,8 @@ function openEditPopup(index) {
         errorMessage.textContent = 'Task must be at least 5 characters long.';
         return;
     }
+todos[editingIndex].text = task;
+    saveTodos();
+    closePopup();
+    renderTodos();
+    }
