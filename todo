@@ -222,3 +222,12 @@ function openDeleteTaskPopup(index) {
         closePopup();
         renderTodos();
     }
+ function openDeleteDonePopup() {
+        const doneTasks = todos.filter(todo => todo.completed);
+         errorMessage2.textContent = '';
+        if (doneTasks.length === 0) {
+            errorMessage2.textContent = 'No completed tasks to delete.';
+            return;
+        }
+        document.getElementById('delete-done-popup').style.display = 'flex';
+    }
