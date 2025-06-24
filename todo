@@ -258,3 +258,11 @@ function closePopup() {
             popup.style.display = 'none';
         });
     }
+ function filterTodos(filter) {
+        renderTodos(filter);
+    }
+
+    document.getElementById('confirm-delete-btn').onclick = deleteTask;
+
+    window.onload = loadTodos;
+    </script>
