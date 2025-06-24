@@ -194,3 +194,16 @@ function openEditPopup(index) {
     const editInput = document.getElementById('edit-input');
     const errorMessage = document.getElementById('edit-error-message');
     const task = editInput.value.trim();
+ // Validate input when editing a task
+    if (task === '') {
+        errorMessage.textContent = 'Task cannot be empty.';
+        return;
+    }
+    if (!isNaN(task.charAt(0))) {
+        errorMessage.textContent = 'Task cannot start with a number.';
+        return;
+    }
+    if (task.length < 5) {
+        errorMessage.textContent = 'Task must be at least 5 characters long.';
+        return;
+    }
